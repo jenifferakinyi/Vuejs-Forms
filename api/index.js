@@ -1,6 +1,4 @@
 const express = require("express");
-const studentRoute = require("./routes/studentRoute");
-const userRoute = require("./routes/userRoute");
 const cors = require('cors');
 require('dotenv').config();
 require('./helpers/init_mongodb');
