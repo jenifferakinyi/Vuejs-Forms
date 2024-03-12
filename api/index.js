@@ -5,16 +5,15 @@ require('./helpers/init_mongodb');
 
 const app = express();
 
-// Enable CORS for all routes
-app.use(cors({
-    origin: "http://localhost:3000",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true, // enable set cookie
-}));
+// // Enable CORS for all routes
+// app.use(cors({
+//     origin: "http://localhost:3000",
+//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//     credentials: true, // enable set cookie
+// }));
 
 app.use(express.json());
-app.use(userRoute); // Use your user-related routes
-app.use(studentRoute); // Use your student-related routes
+
 
 // Handling error 404 (if no matching route found)
 app.use((req, res, next) => {
