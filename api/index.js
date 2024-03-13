@@ -1,5 +1,5 @@
 const express = require("express");
-
+const userRoute = require("./routes/userRoute")
 // const cors = require('cors');
 require('dotenv').config();
 require('./helpers/init_mongodb');
@@ -14,6 +14,7 @@ const app = express();
 // }));
 
 app.use(express.json());
+app.use(userRoute);
 
 
 // Handling error 404 (if no matching route found)
