@@ -61,6 +61,7 @@ export default {
                     // Redirect to home view
                     router.push({ name: 'home' });
                 } else {
+                    alert('invalid credentials')
                     console.error('Login failed:', response.statusText);
                     
                 }
