@@ -29,14 +29,20 @@
                     <button
                         type="submit"
                         class="w-full text-center py-3 rounded bg-purple-600 text-white hover:bg-green-dark focus:outline-none my-1"
-                    >Create Account</button>
+                    >Create Account</button><br>
+                    <div class="text-purple-600 mt-6 underline">
+                    Already have an account 
+                    <a class="underline border-b border-blue text-purple-600 " href="../login/">
+                        Log in
+                    </a>
+                </div>
                 </form>
 
                 <div class="text-purple-600 mt-6 underline">
                     Already have an account 
                     <a class="underline border-b border-blue text-purple-600 " href="../login/">
                         Log in
-                    </a>.
+                    </a>
                 </div>
             </div>
         </div>
