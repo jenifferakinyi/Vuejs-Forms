@@ -32,11 +32,8 @@
                     >Create Account</button>
                 </form>
 
-                <div class="text-purple-600 mt-6 underline">
-                    Already have an account 
-                    <a class="underline border-b border-blue text-purple-600 " href="../login/">
-                        Log in
-                    </a>.
+                <div v-if="registrationSuccess" class="text-green-600 mt-4">
+                    Registration successful! You can now <a href="../login/">log in</a>.
                 </div>
             </div>
         </div>
@@ -49,7 +46,8 @@ export default {
         return {
             username: '',
             email: '',
-            password: ''
+            password: '',
+            registrationSuccess: false
         };
     },
     methods: {
@@ -68,6 +66,12 @@ export default {
                 });
                 const data = await response.json();
                 console.log(data); // Handle response from the server
+
+                // Clear form fields and set registrationSuccess to true
+                this.username = '';
+                this.email = '';
+                this.password = '';
+                this.registrationSuccess = true;
             } catch (error) {
                 console.error('Error:', error);
             }
