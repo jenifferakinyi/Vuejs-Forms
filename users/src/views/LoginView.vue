@@ -33,10 +33,6 @@
                         </a>.
                     </div>
                 </form>
-
-                <div v-if="registrationSuccess" class="text-green-600 mt-4">
-                    logged in successful<a href="../signup/">log in</a>
-                </div>
             </div>
         </div>
     </div> 
