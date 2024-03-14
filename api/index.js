@@ -1,6 +1,5 @@
 const express = require("express");
-const studentRoute = require("./routes/studentRoute");
-const userRoute = require("./routes/userRoute");
+const userRoute = require("./routes/userRoute")
 const cors = require('cors');
 require('dotenv').config();
 require('./helpers/init_mongodb');
@@ -9,14 +8,14 @@ const app = express();
 
 // Enable CORS for all routes
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: " http://localhost:5173",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true, // enable set cookie
 }));
 
 app.use(express.json());
-app.use(userRoute); // Use your user-related routes
-app.use(studentRoute); // Use your student-related routes
+app.use(userRoute);
+
 
 // Handling error 404 (if no matching route found)
 app.use((req, res, next) => {
@@ -36,6 +35,6 @@ app.use((err, req, res, next) => {
     });
 });
 
-app.listen(process.env.PORT || 4000, function () {
-    console.log("now listening for requests on: http://localhost:4000");
+app.listen(process.env.PORT || 7000, function () {
+    console.log("now listening for requests on: http://localhost:7000");
 });
