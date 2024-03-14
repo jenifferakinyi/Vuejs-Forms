@@ -56,6 +56,32 @@ AddUser: async (req, res, next) => {
             next(error);
         }
     },
+    resetPassword: async (req, res, next) => {
+        try {
+          const { token } = req.params;
+          const { password } = req.body;
+    
+          // Find user by token in the database
+          const user = await User.findOne({ resetPasswordToken: token });
+    
+          // If user not found, return error
+          if (!user) {
+            throw createError.BadRequest('Invalid or expired token');
+          }
+    
+          // Update user's password and reset token
+          user.password = password;
+          user.resetPasswordToken = null; 
+    
+          // Saving new user
+          await user.save();
+    
+          res.status(200).send('Password reset successfully');
+        } catch (error) {
+          console.error('Reset password error:', error);
+          next(error);
+        }
+      },
       refreshToken:async(req, res, next)=>{
         try {
           const {refreshToken} = req.body;
