@@ -1,17 +1,17 @@
 const express = require("express");
 const userRoute = require("./routes/userRoute")
-// const cors = require('cors');
+const cors = require('cors');
 require('dotenv').config();
 require('./helpers/init_mongodb');
 
 const app = express();
 
-// // Enable CORS for all routes
-// app.use(cors({
-//     origin: "http://localhost:3000",
-//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-//     credentials: true, // enable set cookie
-// }));
+// Enable CORS for all routes
+app.use(cors({
+    origin: " http://localhost:5173",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true, // enable set cookie
+}));
 
 app.use(express.json());
 app.use(userRoute);
