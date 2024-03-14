@@ -43,41 +43,34 @@
     </div>
 </template>
 <script>
+import router from '../router'; // Import the router
+
 export default {
     data() {
         return {
             email: '',
             password: '',
-            LoginSuccess: false
+            registrationSuccess: false
         };
     },
     methods: {
-        async signup() {
+        async login() {
             try {
-                const response = await fetch('http://localhost:7000/login', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        email: this.email,
-                        password: this.password
-                    })
-                });
-                const data = await response.json();
-                console.log(data); // Handle response from the server
-
-                // Clear form fields and set registrationSuccess to true
-                this.email = '';
-                this.password = '';
-                this.LoginSuccess = true;
+                // Your login logic...
+                // After successful login, set registrationSuccess to true
+                this.registrationSuccess = true;
+                
+                // Redirect to home view
+                router.push({ name: 'home' }); // Navigate to the home view
             } catch (error) {
-                console.error('Error:', error);
+                console.error('Login error:', error);
+                // Handle login errors
             }
         }
     }
 };
 </script>
+
 <style lang="">
     
 </style>
