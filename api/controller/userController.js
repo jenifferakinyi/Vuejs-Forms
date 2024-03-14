@@ -2,7 +2,7 @@ const  mongoose  = require('mongoose');
 const User = require('../model/userModel');
 const {authSchema}= require ("../auth.js/auth_Schema");
 const createError = require('http-errors');
-const {signAccessToken} = require('../helpers/jwtHelper');
+const {signAccessToken, signRefreshToken, verifyRefreshToken} = require('../helpers/jwtHelper');
 
 
 module.exports = {
@@ -27,7 +27,8 @@ AddUser: async (req, res, next) => {
        if(error.isJoi === true)error.status = 422
        next(error)
     }   
-    },    Login:async(req, res, next)=>{
+    },
+    Login:async(req, res, next)=>{
         try {
           const result = await authSchema.validateAsync(req.body);
           const user = await User.findOne({email:result.email});
