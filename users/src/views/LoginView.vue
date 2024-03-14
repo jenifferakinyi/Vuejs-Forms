@@ -35,7 +35,7 @@
                 </form>
 
                 <div v-if="registrationSuccess" class="text-green-600 mt-4">
-                    logged in successful<a href="../signup/">log in</a>.
+                    logged in successful<a href="../signup/">log in</a>
                 </div>
             </div>
         </div>
@@ -43,7 +43,40 @@
     </div>
 </template>
 <script>
+export default {
+    data() {
+        return {
+            email: '',
+            password: '',
+            LoginSuccess: false
+        };
+    },
+    methods: {
+        async signup() {
+            try {
+                const response = await fetch('http://localhost:7000/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: this.email,
+                        password: this.password
+                    })
+                });
+                const data = await response.json();
+                console.log(data); // Handle response from the server
 
+                // Clear form fields and set registrationSuccess to true
+                this.email = '';
+                this.password = '';
+                this.LoginSuccess = true;
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+    }
+};
 </script>
 <style lang="">
     
