@@ -12,7 +12,10 @@ AddUser: async (req, res, next) => {
         const result = await authSchema.validateAsync(req.body);
    
         const Exists = await User.findOne({email: email})
-        if(Exists) throw createError.Conflict(`email ${email} is already taken`)
+        if(Exists) throw createError.Conflict(`email ${email} is already taken`);
+
+        const ExistsUsername = await User.findOne({username: username})
+        if(ExistsUsername) throw createError.Conflict(`username ${username} is already taken`);
         const user = new User(result);
    
         const savedUser = await user.save();
