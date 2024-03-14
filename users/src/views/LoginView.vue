@@ -28,14 +28,14 @@
                     <br>
                     <div class="text-purple-600 mt-6 underline">
                         Don't have an account 
-                        <a class="underline border-b border-blue text-purple-600 " href="../login/">
+                        <a class="underline border-b border-blue text-purple-600 " href="../signup/">
                             Signup
                         </a>.
                     </div>
                 </form>
 
                 <div v-if="registrationSuccess" class="text-green-600 mt-4">
-                    logged in successful<a href="">log in</a>.
+                    logged in successful<a href="../signup/">log in</a>.
                 </div>
             </div>
         </div>
