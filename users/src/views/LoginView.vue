@@ -17,6 +17,9 @@
                             class="block border border-grey-light w-full p-3 rounded mb-4"
                             name="password"
                             placeholder="Password" />
+                            <a class="underline border-b border-blue text-purple-600 " href="../forgotpassword/">
+                            Forgot password 
+                        </a>.<br>
                         <button
                             type="submit"
                             class="w-full text-center py-3 rounded bg-purple-600 text-white hover:bg-green-dark focus:outline-none my-1"
