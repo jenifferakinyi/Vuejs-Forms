@@ -28,7 +28,7 @@
                     <br>
                     <div class="text-purple-600 mt-6 underline">
                         Don't have an account 
-                        <a class="underline border-b border-blue text-purple-600 " href="../signup/">
+                        <a class="underline border-b border-blue text-purple-600 " href="../home/">
                             Signup
                         </a>.
                     </div>
