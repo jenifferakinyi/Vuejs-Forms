@@ -51,7 +51,7 @@ AddUser: async (req, res, next) => {
         } catch (error) {
             console.error('Login error:', error);
             if (error.isJoi === true) {
-                return next(createError.BadRequest('Invalid email/password'));
+                return next(createError.BadRequest('Invalid email or password'));
             }
             next(error);
         }
