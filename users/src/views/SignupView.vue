@@ -34,7 +34,7 @@
                     Already have an account 
                     <a class="underline border-b border-blue text-purple-600 " href="../login/">
                         Log in
-                    </a>
+                    </a>.
                 </div>
                 </form>
 
