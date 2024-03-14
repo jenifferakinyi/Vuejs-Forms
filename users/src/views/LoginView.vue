@@ -35,7 +35,7 @@
                 </form>
 
                 <div v-if="registrationSuccess" class="text-green-600 mt-4">
-                    logged in successful<a href="../signup/">log in</a>.
+                    logged in successful<a href="../signup/">log in</a>
                 </div>
             </div>
         </div>
@@ -43,8 +43,34 @@
     </div>
 </template>
 <script>
+import router from '../router'; // Import the router
 
+export default {
+    data() {
+        return {
+            email: '',
+            password: '',
+            registrationSuccess: false
+        };
+    },
+    methods: {
+        async login() {
+            try {
+                // Your login logic...
+                // After successful login, set registrationSuccess to true
+                this.registrationSuccess = true;
+                
+                // Redirect to home view
+                router.push({ name: 'home' }); // Navigate to the home view
+            } catch (error) {
+                console.error('Login error:', error);
+                // Handle login errors
+            }
+        }
+    }
+};
 </script>
+
 <style lang="">
     
 </style>
