@@ -8,3 +8,40 @@
         </form>
     </div>
 </template>
+<script>
+export default {
+    data() {
+        return {
+            password: '',
+            confirmPassword: ''
+        };
+    },
+    methods: {
+        async resetPassword() {
+            try {
+                if (this.password !== this.confirmPassword) {
+                    throw new Error('Passwords do not match');
+                }
+                // Call your backend API to reset the password
+                const response = await fetch('http://localhost:7000/reset-password', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ password: this.password })
+                });
+                if (response.ok) {
+                    // Redirect the user or display a success message
+                    console.log('Password reset successful');
+                } else {
+                    throw new Error('Failed to reset password');
+                }
+            } catch (error) {
+                console.error('Reset password error:', error.message);
+                // Display an error message to the user
+                alert('Failed to reset password. Please try again.');
+            }
+        }
+    }
+}
+</script>
