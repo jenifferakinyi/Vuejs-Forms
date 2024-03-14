@@ -25,11 +25,11 @@ export default {
                     },
                     body: JSON.stringify({ email: this.email })
                 });
-                // Show alert message when the reset email is sent successfully
+               
                 window.alert('Reset email has been sent to your email address.');
             } catch (error) {
                 console.error('Error sending reset email:', error);
-                // You can also show an alert message for error scenarios if needed
+        
                 window.alert('Error sending reset email. Please try again later.');
             }
         }
