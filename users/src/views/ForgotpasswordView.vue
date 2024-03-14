@@ -3,8 +3,11 @@
     <div>
         <h2>Forgot Password</h2>
         <form @submit.prevent="sendResetEmail">
-            <input type="email" v-model="email" placeholder="Enter your email" required>
-            <button type="submit">Send Reset Email</button>
+            <input type="email" v-model="email" placeholder="Enter your email"  class="block border border-grey-light w-full p-3 rounded mb-4" required>
+            <button
+                        type="submit"
+                        class="w-full text-center py-3 rounded bg-purple-600 text-white hover:bg-green-dark focus:outline-none my-1"
+                    >Send Reset Email</button>
         </form>
     </div>
 </template>
